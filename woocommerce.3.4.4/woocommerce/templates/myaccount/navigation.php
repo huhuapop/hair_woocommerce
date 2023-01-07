@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-do_action( 'woocommerce_before_account_navigation' );
+//do_action( 'woocommerce_before_account_navigation' );
 ?>
 
 <nav class="woocommerce-MyAccount-navigation">

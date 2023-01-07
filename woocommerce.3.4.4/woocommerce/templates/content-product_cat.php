@@ -19,14 +19,25 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+
+
+$cls='productImg';
+if($_SERVER['REQUEST_URI']=='/product-category/hair-extensions/'){
+	$cls='productImg productImg_spech';
+}
+
+
 ?>
-<li <?php wc_product_cat_class( '', $category ); ?>>
+<li class="col-lg-4 col-md-6">
+	<div class="products">
 	<?php
 	/**
 	 * woocommerce_before_subcategory hook.
 	 *
 	 * @hooked woocommerce_template_loop_category_link_open - 10
 	 */
+
 	do_action( 'woocommerce_before_subcategory', $category );
 
 	/**
@@ -34,15 +45,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 *
 	 * @hooked woocommerce_subcategory_thumbnail - 10
 	 */
+	
+	echo '<div class="'.$cls.'">';
 	do_action( 'woocommerce_before_subcategory_title', $category );
+	echo '</div>';
+	
 
 	/**
 	 * woocommerce_shop_loop_subcategory_title hook.
 	 *
 	 * @hooked woocommerce_template_loop_category_title - 10
 	 */
+	
 	do_action( 'woocommerce_shop_loop_subcategory_title', $category );
-
+	
 	/**
 	 * woocommerce_after_subcategory_title hook.
 	 */
@@ -54,4 +70,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * @hooked woocommerce_template_loop_category_link_close - 10
 	 */
 	do_action( 'woocommerce_after_subcategory', $category ); ?>
+</div>
 </li>

@@ -13,7 +13,7 @@
  * @see 	    https://docs.woocommerce.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     3.2.0
+ * @version     3.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -52,26 +52,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<strong><?php echo wc_format_datetime( $order->get_date_created() ); ?></strong>
 				</li>
 
-				<?php if ( is_user_logged_in() && $order->get_user_id() === get_current_user_id() && $order->get_billing_email() ) : ?>
-					<li class="woocommerce-order-overview__email email">
-						<?php _e( 'Email:', 'woocommerce' ); ?>
-						<strong><?php echo $order->get_billing_email(); ?></strong>
-					</li>
-				<?php endif; ?>
-
 				<li class="woocommerce-order-overview__total total">
 					<?php _e( 'Total:', 'woocommerce' ); ?>
 					<strong><?php echo $order->get_formatted_order_total(); ?></strong>
 				</li>
 
 				<?php if ( $order->get_payment_method_title() ) : ?>
-					<li class="woocommerce-order-overview__payment-method method">
-						<?php _e( 'Payment method:', 'woocommerce' ); ?>
-						<strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong>
-					</li>
+
+				<li class="woocommerce-order-overview__payment-method method">
+					<?php _e( 'Payment method:', 'woocommerce' ); ?>
+					<strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong>
+				</li>
+
 				<?php endif; ?>
 
 			</ul>
+            
+<!-- Google Code for Purchases Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 983988993;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "0xzHCMimoHQQgfaZ1QM";
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/983988993/?label=0xzHCMimoHQQgfaZ1QM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<!-- Event snippet for Purchases conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-983988993/0xzHCMimoHQQgfaZ1QM'});
+</script>
 
 		<?php endif; ?>
 
@@ -81,6 +99,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php else : ?>
 
 		<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), null ); ?></p>
+        
+<!-- Google Code for Purchases Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 983988993;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "0xzHCMimoHQQgfaZ1QM";
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/983988993/?label=0xzHCMimoHQQgfaZ1QM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<!-- Event snippet for Purchases conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-983988993/0xzHCMimoHQQgfaZ1QM'});
+</script>
 
 	<?php endif; ?>
 

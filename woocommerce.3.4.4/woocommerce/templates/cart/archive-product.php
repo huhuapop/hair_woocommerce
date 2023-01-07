@@ -36,7 +36,7 @@ get_header( 'shop' ); ?>
 
 		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 
-			<!-- <h1 class="page-title"><?php woocommerce_page_title(); ?></h1> -->
+			<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
 
 		<?php endif; ?>
 
@@ -53,27 +53,17 @@ get_header( 'shop' ); ?>
 			'show_option_none' => '',
 			'hide_empty' => 0,
 			'parent' => $cat_ID,
-			'taxonomy' => 'product_cat',
+			'taxonomy' => 'product_cat'
 			);
-			
-			/*$subcats = get_categories($args);
-			echo '<pre>';
-			print_r($subcats );
-			echo '</pre>';
-			exit;*/
-			/*if ($subcats) {
+			$subcats = get_categories($args);
+			if ($subcats) {
 				woocommerce_subcats_from_parentcat_by_ID($cat_ID);
 			} else {
 				woocommerce_subcats_from_parentcat_by_ID($parent_cat_ID);
-			}*/
+			}
 			?>
 
-		<?php 
-		$page_id= get_the_ID();
-		if($page_id!=106){
-			
-		if ( have_posts() ) : 
-			?>
+		<?php if ( have_posts() ) : ?>
 
 			<?php
 				/**
@@ -83,7 +73,6 @@ get_header( 'shop' ); ?>
 				 * @hooked woocommerce_catalog_ordering - 30
 				 */
 				do_action( 'woocommerce_before_shop_loop' );
-				
 			?>
 
 			<?php woocommerce_product_loop_start(); ?>
@@ -100,7 +89,6 @@ get_header( 'shop' ); ?>
 			<?php woocommerce_product_loop_end(); ?>
 
 			<?php
-			
 				/**
 				 * woocommerce_after_shop_loop hook.
 				 *
@@ -109,12 +97,10 @@ get_header( 'shop' ); ?>
 			if (!$subcats) { 
 				do_action( 'woocommerce_after_shop_loop' );
 			}
-			
 			?>
 
 
-		<?php endif;
-		}?>
+		<?php endif; ?>
 
 	<?php
 		/**
